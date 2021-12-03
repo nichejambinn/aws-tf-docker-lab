@@ -65,6 +65,7 @@ module "bastion_host" {
   subnet_id                   = var.public_subnets[0].id
   associate_public_ip_address = true
   iam_instance_profile        = "LabInstanceProfile"
+  user_data                   = file("install_docker.sh")
   
   tags = merge(
     var.default_tags,
